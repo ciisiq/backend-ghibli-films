@@ -9,10 +9,20 @@ router.get("/films", (req, res) => {
   });
 });
 
+//show a film by id from the db
+router.get("/films/:id", (req, res) => {
+  res.send({
+    type: "GET",
+  });
+});
+
 //Create a new film to the db
 router.post("/films", (req, res) => {
+  console.log(req.body);
   res.send({
     type: "POST",
+    name: req.body.name,
+    rank: req.body.rank,
   });
 });
 
