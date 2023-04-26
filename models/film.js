@@ -27,7 +27,11 @@ const FilmSchema = new Schema({
     type: String,
   },
 
-  poster: {
-    type: Buffer,
-  },
+  // poster: {
+  //   type: Buffer,
+  // },
 });
+
+const Film = mongoose.model("film", FilmSchema);
+
+module.exports = Film;

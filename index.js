@@ -1,8 +1,16 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 //set up express app
 const app = express();
+
+//conect to mongodb
+mongoose.connect("mongodb://localhost:27017");
+// mongoose.connect("mongodb://localhost/filmgo");
+
+//remove duplicated on mongodb
+mongoose.Promise = global.Promise;
 
 //Listen for request
 const PORT = 8080;
@@ -12,7 +20,6 @@ app.listen(PORT, () => console.log(`it's alive on http://localhost:${PORT}`));
 app.use(bodyParser.json());
 
 //Initialize the routes
-// app.use(express.json());
 app.use("/api", require("./routes/api"));
 
 //Handle requests in Express

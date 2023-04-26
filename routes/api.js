@@ -1,6 +1,7 @@
 //all the routes here
 const express = require("express");
 const router = express.Router();
+const Film = require("../models/film");
 
 //show all the films from the db
 router.get("/films", (req, res) => {
@@ -18,11 +19,14 @@ router.get("/films/:id", (req, res) => {
 
 //Create a new film to the db
 router.post("/films", (req, res) => {
-  console.log(req.body);
-  res.send({
-    type: "POST",
-    name: req.body.name,
-    rank: req.body.rank,
+  // console.log(req.body);
+  // var film = new Film(req.body);
+  //save in the db
+  // film.save();
+
+  //How to create and save in Mongodb (it's return a Promise)
+  Film.create(req.body).then((film) => {
+    res.send(film);
   });
 });
 
