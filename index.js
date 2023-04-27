@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const multer = require("multer");
 
 //set up express app
 const app = express();
@@ -27,3 +28,5 @@ app.use((err, req, res, next) => {
   //To show the user what is wrong if fail
   res.status(422).send({ error: err.message });
 });
+
+//Middleware for upload the image

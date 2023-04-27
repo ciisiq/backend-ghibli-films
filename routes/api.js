@@ -34,20 +34,24 @@ router.post("/films", (req, res, next) => {
 
 //change a films from the db
 router.put("/films/:id", (req, res, next) => {
-  Film.findByIdAndUpdate({ _id: req.params.id }, req.body).then(() => {
-    //findone to show the user the changes
-    Film.findOne({ _id: req.params.id }).then((film) => {
-      res.send(film);
-    });
-  });
+  Film.findByIdAndUpdate({ _id: req.params.id }, req.body)
+    .then(() => {
+      //findone to show the user the changes
+      Film.findOne({ _id: req.params.id }).then((film) => {
+        res.send(film);
+      });
+    })
+    .catch(next);
 });
 
 //delete a film from the db
 router.delete("/films/:id", (req, res, next) => {
   //Mongo Method
-  Film.findByIdAndRemove({ _id: req.params.id }).then((ninja) => {
-    res.send(ninja);
-  });
+  Film.findByIdAndRemove({ _id: req.params.id })
+    .then((ninja) => {
+      res.send(ninja);
+    })
+    .catch(next);
 });
 
 module.exports = router;
