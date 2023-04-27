@@ -34,8 +34,11 @@ router.post("/films", (req, res, next) => {
 
 //change a films from the db
 router.put("/films/:id", (req, res, next) => {
-  res.send({
-    type: "PUT",
+  Film.findByIdAndUpdate({ _id: req.params.id }, req.body).then(() => {
+    //findone to show the user the changes
+    Film.findOne({ _id: req.params.id }).then((film) => {
+      res.send(film);
+    });
   });
 });
 
