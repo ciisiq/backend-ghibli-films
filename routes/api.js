@@ -41,8 +41,9 @@ router.put("/films/:id", (req, res, next) => {
 
 //delete a film from the db
 router.delete("/films/:id", (req, res, next) => {
-  res.send({
-    type: "DELETE",
+  //Mongo Method
+  Film.findByIdAndRemove({ _id: req.params.id }).then((ninja) => {
+    res.send(ninja);
   });
 });
 
