@@ -5,15 +5,15 @@ const Film = require("../models/film");
 
 //show all the films from the db
 router.get("/films", (req, res) => {
-  res.send({
-    type: "GET",
+  Film.find({}).then((films) => {
+    res.send(films);
   });
 });
 
 //show a film by id from the db
 router.get("/films/:id", (req, res, next) => {
-  res.send({
-    type: "GET",
+  Film.find({ _id: req.params.id }).then((film) => {
+    res.send(film);
   });
 });
 
