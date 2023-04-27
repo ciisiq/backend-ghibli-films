@@ -11,34 +11,36 @@ router.get("/films", (req, res) => {
 });
 
 //show a film by id from the db
-router.get("/films/:id", (req, res) => {
+router.get("/films/:id", (req, res, next) => {
   res.send({
     type: "GET",
   });
 });
 
 //Create a new film to the db
-router.post("/films", (req, res) => {
-  // console.log(req.body);
+router.post("/films", (req, res, next) => {
+  // Old form to do:
   // var film = new Film(req.body);
-  //save in the db
   // film.save();
 
   //How to create and save in Mongodb (it's return a Promise)
-  Film.create(req.body).then((film) => {
-    res.send(film);
-  });
+  Film.create(req.body)
+    .then((film) => {
+      res.send(film);
+    })
+    .catch(next);
+  // Use a middleware to handle the erro
 });
 
 //change a films from the db
-router.put("/films/:id", (req, res) => {
+router.put("/films/:id", (req, res, next) => {
   res.send({
     type: "PUT",
   });
 });
 
 //delete a film from the db
-router.delete("/films/:id", (req, res) => {
+router.delete("/films/:id", (req, res, next) => {
   res.send({
     type: "DELETE",
   });

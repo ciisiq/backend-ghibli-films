@@ -6,8 +6,8 @@ const mongoose = require("mongoose");
 const app = express();
 
 //conect to mongodb
+//The LOCALHOST was not working, put the number for to fix it
 mongoose.connect("mongodb://127.0.0.1:27017/ghibli");
-// mongoose.connect("mongodb://localhost/filmgo");
 
 //remove duplicated on mongodb
 mongoose.Promise = global.Promise;
@@ -16,27 +16,14 @@ mongoose.Promise = global.Promise;
 const PORT = 8080;
 app.listen(PORT, () => console.log(`it's alive on http://localhost:${PORT}`));
 
-//Middleware
+//Middlewares:
 app.use(bodyParser.json());
 
 //Initialize the routes
 app.use("/api", require("./routes/api"));
 
-//Handle requests in Express
-// app.get("/api", (req, res) => {
-//   console.log("GET request");
-//   res.send({
-//     name: "Yoshi",
-//   });
-// });
-
-// app.get("/films", (req, res) => {
-//   res.status(200).send({
-//     tshirt: "👕",
-//     size: "large",
-//   });
-// });
-
-// app.get("films/:id", (req, res) => {
-//   const { id } = req.params;
-// });
+// Middleware for handling error;
+app.use((err, req, res, next) => {
+  //To show the user what is wrong if fail
+  res.status(422).send({ error: err.message });
+});
