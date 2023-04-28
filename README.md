@@ -6,9 +6,9 @@ Ghibli Films API is a personal project just for studies, I use the films from St
 
 ### Challenges I encountered in this project
 
-Backend is a challenge in all ways for me, but I had some challenges that I enter to ask people for help and read a lot of things.
-1 - Make DB run locally;
-2 - Connect the Mongodb to my API local
+Backend is a challenge in all ways for me, but I had some challenges that I enter to ask people for help and read a lot of things.<br>
+1 - Make DB run locally;<br>
+2 - Connect the Mongodb to my API local;<br>
 3 - db how to use the image (poster) with Buffer
 <br><br>
 
