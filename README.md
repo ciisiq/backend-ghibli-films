@@ -1,8 +1,5 @@
 # Ghibli Films API
 
-⚠️⚠️ Under construction ⚠️⚠️
-<br><br>
-
 ### Introduction
 
 Ghibli Films API is a personal project just for studies, I use the films from Studio Ghibli because I love them and it inspired me to make this API to be able to use in my frontend application.<br><br>
@@ -47,8 +44,6 @@ Backend is a challenge in all ways for me, but I had some challenges that I ente
 | POST       | /films     | To create a new film                 |
 | PUT        | /films/:id | To edit the details of a single film |
 | DELETE     | /films/:id | To delete a single film              |
-
-<br><br>
 
 ### Example data
 
