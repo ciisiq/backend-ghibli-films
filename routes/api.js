@@ -12,7 +12,7 @@ router.get("/films", (req, res) => {
 
 //show a film by id from the db
 router.get("/films/:id", (req, res, next) => {
-  Film.find({ _id: req.params.id }).then((film) => {
+  Film.findOne({ _id: req.params.id }).then((film) => {
     res.send(film);
   });
 });

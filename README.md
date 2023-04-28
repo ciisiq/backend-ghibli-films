@@ -47,3 +47,19 @@ Backend is a challenge in all ways for me, but I had some challenges that I ente
 | POST       | /films     | To create a new film                 |
 | PUT        | /films/:id | To edit the details of a single film |
 | DELETE     | /films/:id | To delete a single film              |
+
+<br><br>
+
+### Example data
+
+```{
+_id: "644ac288c9f67664f20abdd7",
+title: "Arrietty",
+genre: "Fantasy/Adventure",
+release: "July 17, 2010",
+director: "Hiromasa Yonebayashi",
+synopsis: "Arrietty and her family live out of sight from humans, but she strikes an unlikely friendship when she meets a human boy.",
+poster: "https://upload.wikimedia.org/wikipedia/en/e/e7/Karigurashi_no_Arrietty_poster.png"
+__v: 0,
+}
+```
