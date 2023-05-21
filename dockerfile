@@ -3,6 +3,8 @@
 # Base Image
 FROM node:16
 
+ENV MONGO_URL=mymongo
+
 # Create & set working directory
 WORKDIR /usr/src/app
 

@@ -5,9 +5,12 @@ const mongoose = require("mongoose");
 //set up express app
 const app = express();
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 //conect to mongodb
 //The LOCALHOST was not working, put the number for to fix it
-mongoose.connect("mongodb://127.0.0.1:27017/ghibli");
+mongoose.connect(`mongodb://${process.env.MONGO_URL}:27017/ghibli`);
 //remove duplicated on mongodb
 mongoose.Promise = global.Promise;
 //Listen for request
